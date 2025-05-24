@@ -28,3 +28,12 @@
 
 ```
 
+## Ví dụ về sử dụng map trên 1 list state object để lấy ra device_class ( property trực tiếp của state.attributes)
+```
+{{ states.light 
+   | map(attribute='attributes.friendly_name') 
+   | list 
+}}
+
+
+```
