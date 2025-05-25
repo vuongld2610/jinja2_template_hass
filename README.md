@@ -56,3 +56,15 @@ return:
 33 years
 32 years 7 months 9 days 2 hours
 ```
+## Sử dụng các filter khác nhau để convert UTC timetamp thành string format:
+```
+{# convert timetamp to datetime str #}
+# filter only
+timestamp_local  =>{{ 1748146555|timestamp_local }}
+timestamp_utc =>{{ 1748146555|timestamp_utc }}
+timestamp_custom filter =>{{ 1748146555|timestamp_custom('%d-%m-%y %H:%M:%S') }}
+# output
+timestamp_local  =>2025-05-25T11:15:55+07:00
+timestamp_utc =>2025-05-25T04:15:55+00:00
+timestamp_custom filter =>25-05-25 11:15:55
+```
