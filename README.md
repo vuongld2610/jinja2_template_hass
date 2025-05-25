@@ -33,10 +33,16 @@
    | map(attribute='attributes.friendly_name') 
    | list 
 }}
-
 ```
 ## Dùng strptime() để convert 1 string tùy ý về datetime object
 ```
 {{ strptime('26&10&1992 09:15:30', '%d&%m&%Y %H:%M:%S') }}
+```
 
+## Dùng as_local() để lấy ra được thời gian báo thức tiếp theo theo local time
+```
+{% set next_alarm_in_utc_time_str =  states('sensor.sm_s911b_next_alarm') %}
+{% set next_alarm_in_utc_time =  as_datetime(next_alarm_in_utc_time_str) %}
+{% set next_alarm_in_local_time = as_local(next_alarm_in_utc_time) %}
+{{ next_alarm_in_local_time }}
 ```
