@@ -25,7 +25,6 @@
    | list 
    | join(', ')
 }}
-
 ```
 
 ## Ví dụ về sử dụng map trên 1 list state object để lấy ra device_class ( property trực tiếp của state.attributes)
@@ -35,5 +34,9 @@
    | list 
 }}
 
+```
+## Dùng strptime() để convert 1 string tùy ý về datetime object
+```
+{{ strptime('26&10&1992 09:15:30', '%d&%m&%Y %H:%M:%S') }}
 
 ```
