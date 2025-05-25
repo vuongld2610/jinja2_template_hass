@@ -51,4 +51,8 @@
 {% set MY_BIRTHDAY = as_datetime('1992-10-26T09:15:00+07:00') %}
 {{ relative_time(MY_BIRTHDAY) }}
 {{ time_since(MY_BIRTHDAY,4) }}
+
+return:
+33 years
+32 years 7 months 9 days 2 hours
 ```
