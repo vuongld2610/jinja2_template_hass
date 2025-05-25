@@ -68,3 +68,8 @@ timestamp_local  =>2025-05-25T11:15:55+07:00
 timestamp_utc =>2025-05-25T04:15:55+00:00
 timestamp_custom filter =>25-05-25 11:15:55
 ```
+## Sử dụng isoformat() để convert một datetime object về dạng ISO 8601 str:
+```
+  {{ states.light.phong_hoc.last_changed.isoformat() }}
+
+```
