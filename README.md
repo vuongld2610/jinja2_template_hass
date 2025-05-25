@@ -46,3 +46,9 @@
 {% set next_alarm_in_local_time = as_local(next_alarm_in_utc_time) %}
 {{ next_alarm_in_local_time }}
 ```
+## Tính tuổi bản thân bằng relative_time() và time_since()
+```
+{% set MY_BIRTHDAY = as_datetime('1992-10-26T09:15:00+07:00') %}
+{{ relative_time(MY_BIRTHDAY) }}
+{{ time_since(MY_BIRTHDAY,4) }}
+```
