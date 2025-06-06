@@ -40,6 +40,13 @@
 {% set domains = ['light', 'switch'] %}
 {{ states|selectattr('domain', 'in', domains )| selectattr('state', 'equalto', 'on')|map(attribute='entity_id')|list|join(', ') }}
 ```
+
+## Ví dụ về sử dụng rejectattr() để lọc ra những entity không phải là bóng đèn và công tắc
+```
+{% set excluded_domains = ['light', 'switch'] %}
+{% set entities = states | rejectattr('domain', 'in', excluded_domains) | map(attribute='entity_id') | list %}
+{{ entities }}
+```
 ## Dùng strptime() để convert 1 string tùy ý về datetime object
 ```
 {{ strptime('26&10&1992 09:15:30', '%d&%m&%Y %H:%M:%S') }}
