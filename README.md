@@ -34,6 +34,12 @@
    | list 
 }}
 ```
+
+## Ví dụ về sử dụng selectattr() để lọc ra những bóng đèn và công tắc đang ở chế độ on
+```
+{% set domains = ['light', 'switch'] %}
+{{ states|selectattr('domain', 'in', domains )| selectattr('state', 'equalto', 'on')|map(attribute='entity_id')|list|join(', ') }}
+```
 ## Dùng strptime() để convert 1 string tùy ý về datetime object
 ```
 {{ strptime('26&10&1992 09:15:30', '%d&%m&%Y %H:%M:%S') }}
