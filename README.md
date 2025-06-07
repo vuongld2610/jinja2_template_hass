@@ -119,7 +119,7 @@ timestamp_custom filter =>25-05-25 11:15:55
 ## fire vào phút thứ 0, 15, 17 của mỗi giờ
 
 > [!CAUTION]
-> Hiện tại time_trigger không hỗ trợ viết kiểu minutes: "0,15,17"
+> Hiện tại time_trigger không hỗ trợ viết kiểu **minutes: "0,15,17"**
 Có thể dùng nhiều time_trigger để đặt được mục đích:
 ```
 trigger:
