@@ -117,12 +117,32 @@ timestamp_custom filter =>25-05-25 11:15:55
   condition: []
 ```
 ## fire vào phút thứ 0, 15, 17 của mỗi giờ
-```
-```
-
-Để kết nối nguồn điện:
-1. Cắm dây đỏ vào cổng dương (+).
-2. Cắm dây đen vào cổng âm (-).
 
 > [!CAUTION]
-> Negative potential consequences of an action.
+> Hiện tại time_trigger không hỗ trợ viết kiểu minutes: "0,15,17"
+Có thể dùng nhiều time_trigger để đặt được mục đích:
+```
+trigger:
+  - platform: time_pattern
+    minutes: "0"
+  - platform: time_pattern
+    minutes: "15"
+  - platform: time_pattern
+    minutes: "17"
+```
+hoặc sử dụng template trigger:
+```
+trigger:
+  - platform: template
+    value_template: >
+      {% set m = now().minute %}
+      {{ m in [0, 15, 17] }}
+
+```
+
+> [!TIP]  
+>Lưu ý: template trigger sẽ được đánh giá mỗi phút, vì vậy nó phù hợp cho các kiểm tra theo phút.
+
+
+
+
