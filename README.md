@@ -86,3 +86,43 @@ timestamp_custom filter =>25-05-25 11:15:55
   {{ states.light.phong_hoc.last_changed.isoformat() }}
 
 ```
+
+# time_pattern tigger
+## fire mỗi 5 giây (Các giây thứ 0, 5, 10...)
+```
+- id: trigger fire every 1 minute
+  alias: trigger fire every 1 minute
+  mode: single
+  triggers: 
+    trigger: time_pattern
+    seconds: /5
+```
+## fire mỗi 1 phút
+```
+- id: trigger fire every 1 minute
+  alias: trigger fire every 1 minute
+  mode: single
+  triggers: 
+    trigger: time_pattern
+    minutes: /1
+```
+## fire vào phút thứ 15 của mỗi giờ
+```
+- id: trigger fire every 1 minute
+  alias: trigger fire every 1 minute
+  mode: single
+  triggers: 
+    trigger: time_pattern
+    minutes: 10
+  condition: []
+```
+## fire vào phút thứ 0, 15, 17 của mỗi giờ
+```
+```
+
+Để kết nối nguồn điện:
+1. Cắm dây đỏ vào cổng dương (+).
+2. Cắm dây đen vào cổng âm (-).
+
+> [!CAUTION]
+> Negative potential consequences of an action.
