@@ -106,6 +106,12 @@ timestamp_custom filter =>25-05-25 11:15:55
     trigger: time_pattern
     minutes: /1
 ```
+## trigger vào phút thứ 0 của mỗi giờ
+```
+trigger:
+  - platform: time_pattern
+    minutes: "0"
+```
 ## fire vào phút thứ 15 của mỗi giờ
 ```
 - id: trigger fire every 1 minute
@@ -144,5 +150,32 @@ trigger:
 >Lưu ý: template trigger sẽ được đánh giá mỗi phút, vì vậy nó phù hợp cho các kiểm tra theo phút.
 
 
+## fire trong giờ hành chính
+```
+- alias: 'Kich hoat dau moi gio trong gio hanh chinh'
+  description: 'Chay automation vao 00 phut moi gio tu 8h sang den 5h chieu, tu T2 den T6'
+  trigger:
+    - platform: time_pattern
+      minutes: 0 # Kich hoat vao phut thu 0 cua moi gio
+  condition:
+    - condition: time
+      # Chi chay tu 8h sang den 5h chieu
+      after: '08:00:00'
+      before: '17:01:00' # Đặt 17:01:00 để đảm bảo bao gồm cả 17:00:00
+      # Chi chay tu Thu Hai den Thu Sau
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+```
 
-
+## fire mỗi phút một phần chỉ trong giờ thứ 3
+```
+  triggers:
+    - trigger: time_pattern
+      # Trigger once per minute during the hour of 3
+      hours: "3"
+      minutes: "*"
+```
