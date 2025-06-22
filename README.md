@@ -234,5 +234,20 @@ action:
           - service: light.turn_off
             target:
               entity_id: light.phong_khach
-
+```
+## Sử Dụng webhook để điều khiển bóng đèn ( có gửi kèm thông tin )
+```
+alias: Điều khiển đèn với màu sắc và độ sáng
+trigger:
+  - platform: webhook
+    webhook_id: turn_light_on
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.phong_khach  # 👉 thay bằng entity của bạn
+    data:
+      rgb_color: "{{ trigger.json.rgb_color }}"
+      brightness: "{{ trigger.json.brightness }}"
+với request như sau:
+curl -X POST -H 'Content-Type: application/json' -d '{"rgb_color": [88,255,126], "brightness" : 50}' http://ducvuong25.ddns.net:8123/api/webhook/turn_light_on
 ```
