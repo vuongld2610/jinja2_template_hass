@@ -213,6 +213,7 @@ trigger:
         entity_id: light.phong_hoc
 ```
 ##  Điều khiển đèn bằng webhook kết hợp với choose
+```
 alias: Điều khiển đèn bằng webhook
 trigger:
   - platform: webhook
