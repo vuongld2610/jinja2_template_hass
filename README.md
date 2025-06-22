@@ -212,3 +212,26 @@ trigger:
       target:
         entity_id: light.phong_hoc
 ```
+##  Điều khiển đèn bằng webhook kết hợp với choose
+alias: Điều khiển đèn bằng webhook
+trigger:
+  - platform: webhook
+    webhook_id: some_hook_id
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.json.light == 'on' }}"
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.phong_khach
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.json.light == 'off' }}"
+        sequence:
+          - service: light.turn_off
+            target:
+              entity_id: light.phong_khach
+
+```
