@@ -179,3 +179,36 @@ trigger:
       hours: "3"
       minutes: "*"
 ```
+
+## Tự động tắt đèn sau một khảng thời gian tính từ lúc bật
+```
+- id: tu dong tat den sau 30s bat
+  alias: tu dong tat den sau 30s bat
+  triggers: 
+    - trigger: state
+      entity_id: light.phong_hoc
+      to: "on"
+  conditions: []
+  actions: 
+    - action: input_datetime.set_datetime
+      target:
+        entity_id: input_datetime.time_turn_off_light
+      data:
+        # datetime: >
+        #   {% set NEXT_1_MINUTE = now() + timedelta(minutes = 1) %}
+        #   {{ NEXT_1_MINUTE.strftime('%Y-%m-%d %H:%M:%S')}}
+        datetime: >
+          {% set MOUNT_OF_TIME_TO_TURN_OF_LIGHT = inpu %}
+          {% set NEXT_1_MINUTE = now() + timedelta(minutes = 1) %}
+          {{ NEXT_1_MINUTE.strftime('%Y-%m-%d %H:%M:%S')}}
+- id: bat den khi dat den thoi gian quy dinh
+  alias: bat den khi dat den thoi gian quy dinh
+  triggers: 
+    - trigger: time
+      at: input_datetime.time_turn_off_light
+  conditions: []
+  actions: 
+    - action: light.turn_off
+      target:
+        entity_id: light.phong_hoc
+```
