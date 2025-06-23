@@ -317,3 +317,5 @@ hiện tại automation của tôi đã hoạt động rồi.
             message: "Màu không hợp lệ: {{ trigger.query.color_name }}"
 
 ```
+> [!TIP]
+> https://chatgpt.com/share/685966bc-e588-800d-9520-b03048b125a1
