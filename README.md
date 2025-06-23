@@ -251,3 +251,69 @@ action:
 với request như sau:
 curl -X POST -H 'Content-Type: application/json' -d '{"rgb_color": [88,255,126], "brightness" : 50}' http://ducvuong25.ddns.net:8123/api/webhook/turn_light_on
 ```
+## Thay đổi màu sắc bóng đèn bằng webhook + choose/conditions
+```
+hiện tại automation của tôi đã hoạt động rồi. 
+- id: webhoook redo 
+  alias: webhook redo
+  triggers: 
+    - trigger: webhook
+      webhook_id: "change-light-color"
+      allowed_methods:
+        - GET
+  conditions: []
+  actions: 
+    - choose:
+      - conditions: 
+        - condition: template
+          value_template: "{{ trigger.query.color_name == 'red' }}"
+        sequence: 
+          - action: light.turn_on
+            target:
+              entity_id: light.phong_hoc
+            data:
+              rgb_color: [255,0,0]
+      - conditions: 
+        - condition: template
+          value_template: "{{ trigger.query.color_name == 'yellow' }}"
+        sequence: 
+          - action: light.turn_on
+            target:
+              entity_id: light.phong_hoc
+            data:
+              rgb_color: [255,255,0]
+```
+
+## Dùng webhook thay đổi bóng đèn ( Phiển bản cải tiến: khai báo automation variable level kiểu dic)
+```
+- id: webhook_redo
+  alias: webhook redo
+  trigger:
+    - platform: webhook
+      webhook_id: "change-light-color"
+      allowed_methods:
+        - GET
+  variables:
+    color_map:
+      red: [255, 0, 0]
+      yellow: [255, 255, 0]
+      green: [0, 255, 0]         # thêm màu nếu cần
+      blue: [0, 0, 255]
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.query.color_name in color_map }}"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.phong_hoc
+              data:
+                rgb_color: "{{ color_map[trigger.query.color_name] }}"
+    - default:
+        - service: notify.persistent_notification
+          data:
+            message: "Màu không hợp lệ: {{ trigger.query.color_name }}"
+
+```
