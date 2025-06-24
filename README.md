@@ -323,3 +323,8 @@ hiện tại automation của tôi đã hoạt động rồi.
 ```
 {{ 'study' in state_attr('input_select.den_hoc_sence','options') }}
 ```
+## condition
+### time condition
+```
+// todo
+```
