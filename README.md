@@ -321,5 +321,5 @@ hiện tại automation của tôi đã hoạt động rồi.
 > https://chatgpt.com/share/685966bc-e588-800d-9520-b03048b125a1
 ## Kiểm tra 1 string có nằm trong các option của input_select hay không:
 ```
-{{ is_state_attr('input_select.my_mode', 'options', ['sleeping', 'study']) }}
+{{ 'study' in state_attr('input_select.den_hoc_sence','options') }}
 ```
