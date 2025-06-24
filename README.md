@@ -326,5 +326,26 @@ hiện tại automation của tôi đã hoạt động rồi.
 ## condition
 ### time condition
 ```
-// todo
+- id: turn_light_on_when_has_get_request
+  alias: turn_light_on_when_has_get_request
+  triggers: 
+    - trigger: webhook
+      webhook_id: "turn_light_on"
+      allowed_methods:
+        - "POST"
+      local_only: false
+  conditions: 
+    - condition: time
+      after: "15:50:00"
+  actions: 
+    - action: light.turn_on
+      target: 
+        entity_id: light.phong_hoc
+      data:
+        brightness: "{{ trigger.json.brightness }}"
+        rgb_color: "{{ trigger.json.rgb_color }}"
+    - action: notify.persistent_notification
+      data:
+        message: >
+          "{{ trigger.json }}"
 ```
