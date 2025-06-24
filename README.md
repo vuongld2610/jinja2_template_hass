@@ -349,3 +349,8 @@ hiện tại automation của tôi đã hoạt động rồi.
         message: >
           "{{ trigger.json }}"
 ```
+### state condition
+```
+todo
+```
+
