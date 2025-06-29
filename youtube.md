@@ -13,10 +13,10 @@
 
 >[NOTE]
 >-map = chỉ định rõ bạn muốn lấy stream nào từ các input
->
 >-map [file_index]:[stream_type]:[stream_index]
->
 >0:v:0 = file đầu vào thứ 0, video stream số 0
->
 >1:a:0 = file đầu vào thứ 1, audio stream số 0
->
+## Get format tốt nhất mà có cả video và audio (pre-merged format)
+```
+yt-dlp -f best -g "https://www.youtube.com/watch?v=dPzT0oFX3AE"
+```
