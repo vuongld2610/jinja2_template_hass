@@ -30,4 +30,15 @@ yt-dlp -f best -g "https://www.youtube.com/watch?v=dPzT0oFX3AE"
 ```
 yt-dlp -f best -g "https://www.youtube.com/watch?v=dPzT0oFX3AE"
 ```
+## Get format tốt nhất cho ffmpeg+mpegts (giới hạn độ phân giải tối đa 1080p)
+>[!WARNING]
+>nếu dùng FFmpeg để stream ra stdout bằng mpegts thì ko nên dung cách này vò mpegts chỉ hỗ trợ video  H.264, MPEG-2. audio:AAC, MP2
+>FFPEG-mpegts không tương thích với video codect: VP8, VP9. audio codect: Opus, Vorbis
+```
+yt-dlp \
+  -f "bv[ext=mp4][vcodec*=avc1][height<=1080]+ba[ext=m4a][acodec*=mp4a]" \
+  --get-url \
+  "https://www.youtube.com/watch?v=VIDEO_ID"
+```
+
 
