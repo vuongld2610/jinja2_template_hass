@@ -6,8 +6,7 @@
        -c:a copy \
        -map 0:v:0 \
        -map 1:a:0 \
-       -f mp4 \
-       -movflags frag_keyframe+empty_moov pipe:1|'/c/Program Files/VideoLAN/VLC/vlc.exe' -
+       -f mpegts pipe:1|'/c/Program Files/VideoLAN/VLC/vlc.exe' -
 ```
 >[!WARNING]
 >KHÔNG DECODE VIDEO/AUDIO
