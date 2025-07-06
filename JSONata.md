@@ -12,3 +12,7 @@ https://try.jsonata.org/0GncyDVlt
 ```
 https://try.jsonata.org/hZfpBXaZ1s
 ```
+## Gộp nhóm theo từng tỉnh thành và đếm tổng giá trị hàng hóa mà mỗi học sinh trong tinh thành đó bán được.
+```
+https://try.jsonata.org/IE4kDczd1
+```
