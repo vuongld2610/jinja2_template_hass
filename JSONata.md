@@ -16,3 +16,7 @@ https://try.jsonata.org/hZfpBXaZ1s
 ```
 https://try.jsonata.org/IE4kDczd1
 ```
+$$ gọp nhóm theo độ tuổi thiếu niên, thanh niên, khác
+```
+https://try.jsonata.org/KCOs3U55h
+```
