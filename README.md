@@ -356,8 +356,9 @@ todo
 
 
 ### template sensor: Cảm biến ảo "Tuổi thọ lõi lọc nước" (Giảm dần theo ngày)
+Giả sử lõi lọc của bạn dùng được 180 ngày. Bạn muốn mỗi ngày nó trừ đi 1 tí cho đến khi về 0.
+Đầu tiên, tạo một cái Input Datetime (Helper) tên là input_datetime.ngay_thay_loi để lưu ngày bạn lắp lõi.
 ```
-template:
   - sensor:
       - name: "Phần trăm lõi lọc còn lại"
         unique_id: phan_tram_loi_loc_nuoc
