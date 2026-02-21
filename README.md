@@ -354,3 +354,25 @@ hiện tại automation của tôi đã hoạt động rồi.
 todo
 ```
 
+```
+### template sensor: Cảm biến ảo "Tuổi thọ lõi lọc nước" (Giảm dần theo ngày)
+```
+template:
+  - sensor:
+      - name: "Phần trăm lõi lọc còn lại"
+        unique_id: phan_tram_loi_loc_nuoc
+        unit_of_measurement: "%"
+        icon: "mdi:water-percent"
+        state: >
+          {% set ngay_lap = states('input_datetime.ngay_thay_loi') | as_datetime %}
+          {% set hom_nay = now() %}
+          {% set so_ngay_da_dung = (hom_nay - ngay_lap).days %}
+          {% set tong_han_dung = 180 %}
+          
+          {# Tính toán phần trăm còn lại #}
+          {% set phan_tram = ((tong_han_dung - so_ngay_da_dung) / tong_han_dung * 100) | round(0) %}
+          
+          {# Đảm bảo con số không bị âm #}
+          {{ [0, phan_tram] | max }}
+```
+
