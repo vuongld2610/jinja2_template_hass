@@ -354,7 +354,7 @@ hiện tại automation của tôi đã hoạt động rồi.
 todo
 ```
 
-```
+
 ### template sensor: Cảm biến ảo "Tuổi thọ lõi lọc nước" (Giảm dần theo ngày)
 ```
 template:
