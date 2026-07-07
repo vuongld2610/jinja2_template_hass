@@ -4,8 +4,6 @@
 
 #### nguyên lý hoạt động
 
-**Chính xác 100%!** Mày đã hiểu rất đúng bản chất.
-
 ### 🧠 Tóm tắt lại toàn bộ quá trình:
 
 1. **Bạn hỏi**: *"thời tiết hôm nay ra sao"*
