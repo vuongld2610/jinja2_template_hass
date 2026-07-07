@@ -4,8 +4,6 @@
 
 #### nguyên lý hoạt động
 
-### 🧠 Tóm tắt lại toàn bộ quá trình:
-
 1. **Bạn hỏi**: *"thời tiết hôm nay ra sao"*
 2. **Agent gửi prompt** (cùng với danh sách `tools` và `messages`) lên Gemini.
 3. **Gemini đọc prompt, hiểu ý bạn** và quyết định: *"Cần phải lấy dữ liệu thời tiết từ HA"* → Nó **không tự tìm trên Google**.
@@ -14,4 +12,7 @@
 6. **Agent gửi dữ liệu đó lên Gemini** (trong request tiếp theo).
 7. **Gemini tổng hợp dữ liệu thành câu trả lời**: *"Thời tiết hôm nay nhiều mây, nhiệt độ khoảng 30.8°C và độ ẩm là 63%."*
 
-### 🎯 Kết luận:
+#### phân tích log (đã đã bật debug trong integration local_openai)
+
+1. Để xem **raw response** tìm keyword: `Raw content from API stream:`
+2. Để xem các **expose entities**: `Exposed devices for prompt:`
